@@ -1,3 +1,65 @@
+<?php
+
+		try
+		{
+			$bdd = new PDO('mysql:host=localhost;dbname=vifl4713_bdd;charset=utf8','vifl4713_bdd', 'LOCWqSqgX2PduJlbyC'); 
+		}
+		catch (Exception $e)
+		{
+			die('Erreur : ' . $e->getMessage());
+		}
+
+if (isset($_POST['formulaire_inscription'])) 
+{
+	if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['pseudo']) AND !empty($_POST['motdepasse']) AND  !empty($_POST['question']) AND !empty($_POST['reponse'])) 
+	{
+		$nom = htmlspecialchars($_POST['nom']);
+		$prenom = htmlspecialchars($_POST['prenom']);
+		$pseudo = htmlspecialchars($_POST['pseudo']);
+		$motDePasse = sha1($_POST['motdepasse']);
+		$question = ($_POST['question']);
+		$reponse = htmlspecialchars($_POST['reponse']);
+
+		$pseudolength = strlen($pseudo);
+		
+		if ($pseudolength <= 30) 
+		{
+			$motDePasseLength = strlen($motDePasse);
+			if($motDePasseLength >= 10)
+			{
+				$requetePseudo = $bdd->prepare('SELECT * FROM members WHERE pseudo = :pseudo');
+				$requetePseudo->execute([':pseudo'=>$pseudo]);
+				$pseudoExiste = $requetePseudo->rowCount();
+				if ($pseudoExiste === 0) 
+				{	
+					$insererMembre = $bdd->prepare('INSERT INTO members(nom, prenom, pseudo, motdepasse, question, reponse) VALUES (:nom, :prenom, :pseudo, :motdepasse, :question, :reponse)');
+					$insererMembre->execute([':nom'=>$nom, ':prenom'=>$prenom, 'pseudo'=>$pseudo, ':motdepasse'=>$motDePasse, ':question'=>$question, 'reponse'=>$reponse]);
+					$message = 'Votre compte a bien été créé !';
+					header('Location: index.php');
+				}
+				else
+				{
+					$message = 'Ce pseudo existe déjà';
+				}
+			}
+			else
+			{
+				$message = 'Le mot de passe doit comporter au moins 10 caractères';
+			}
+		}
+		else
+		{
+			$message = " Votre pseudo ne doit pas dépasser 30 caractères !";
+		}
+
+	}
+	else
+	{
+		$message = 'Tous les champs doivent être remplis';
+	}
+}
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -42,6 +104,13 @@
 						<input type="submit" name="formulaire_inscription" value="Envoyez">
 						
 					</form>
+
+					<?php
+						if (isset($message)) 
+						{
+							echo '<p> <font color="red"> ' . $message. ' </p> ';
+						}
+					?>
 				</div>
 			</div>
 			<?php include('includes/footer.php'); ?>
