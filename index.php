@@ -1,3 +1,50 @@
+<?php
+session_start();
+
+		try
+		{
+			$bdd = new PDO('mysql:host=localhost;dbname=vifl4713_bdd;charset=utf8','vifl4713_bdd', 'LOCWqSqgX2PduJlbyC'); 
+		}
+		catch (Exception $e)
+		{
+			die('Erreur : ' . $e->getMessage());
+		}
+
+if (isset($_POST['formulaire_connexion']))
+{
+	if (!empty($_POST['pseudo_connection']) AND !empty($_POST['motdepasse_connection']))
+	{
+		$pseudoConnection = htmlspecialchars($_POST['pseudo_connection']);
+		$motDePasseConnection = sha1($_POST['motdepasse_connection']);
+	 
+		$requeteUtilisateur = $bdd->prepare('SELECT * FROM members WHERE pseudo = :pseudo AND motdepasse = :motdepasse');
+		$requeteUtilisateur->execute([':pseudo'=>$pseudoConnection, ':motdepasse'=>$motDePasseConnection]);
+		$utilisateurExiste = $requeteUtilisateur->rowCount();
+		if ($utilisateurExiste === 1) 
+		{
+			$utilisateurInfo = $requeteUtilisateur->fetch(); 
+			$_SESSION['id'] = $utilisateurInfo['id'];
+			$_SESSION['pseudo'] = $utilisateurInfo['pseudo'];
+			$_SESSION['nom'] = $utilisateurInfo['nom'];
+			$_SESSION['prenom'] = $utilisateurInfo['prenom'];
+			$_SESSION['question'] = $utilisateurInfo['question'];
+			$_SESSION['reponse'] = $utilisateurInfo['reponse'];
+			header('location: accueil.php');
+		}
+		else
+		{
+			$message = ' Pseudo ou mot de passe incorrect';
+		}
+	}
+	else
+	{
+		$message = ' Tous les champs doivent être remplis';
+	}
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -28,6 +75,14 @@
 					<a href="motdepasseoublié.php"> mot de passe oublié ? </a>
 					<p> Vous n'avez pas de compte ?  <a href="inscription.php"> Inscrivez-vous</a></p>
 				</form><br /><br />
+				<?php
+					if (isset($message)) 
+					{
+					
+						echo ' <font color="red"> ' . $message . '  ';
+
+					}
+				?>
 				
 			</div>
 			</div>
