@@ -11,6 +11,8 @@
 
 	<body>
 
+			<?php include('includes/header_deconnecte.php'); ?>
+
 			<div class="vertical_align">
 			<div class="form" id="connexion" style="margin-bottom: 50px;">
 				<h3 class="title"> Connexion</h3>
