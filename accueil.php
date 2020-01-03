@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id'])) 
+{
+	
+?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -71,5 +78,10 @@
 
 	</body>
 </html>
-
+<?php
+}
+else
+{
+	header("Location: index.php");
+}
 ?>
