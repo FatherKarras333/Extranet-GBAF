@@ -10,6 +10,8 @@
 
 	<body>
 
+			<?php include("includes/header_connecte.php"); ?>
+
 			<section id="presentation">
 				<div class="title">
 					<h1> Groupement Banque-Assurance Français (GBAF). </h1>
@@ -65,5 +67,9 @@
 				
 			</section>
 
+			<?php include('includes/footer.php'); ?>
+
 	</body>
 </html>
+
+?>
