@@ -84,6 +84,27 @@ label{
 	margin-top: 200px;
 }
 
+/* responsive */
+@media only screen and (max-width: 800px){
+	.form{
+		margin: 200px 10px 50px 10px;
+	}
+}
+
+@media only screen and (max-width: 465px){
+	
+	#connexion p , #connexion p a{
+	font-size: 12px;
+	}
+}
+
+/*Page d'édition*/
+#formulaire_modification
+{
+	height: 750px;
+	margin-bottom: 50px;
+}
+
 /* formulaire commentaire */
 
 #formulaire_commentaire{

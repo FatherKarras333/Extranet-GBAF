@@ -22,6 +22,7 @@ if(isset($_SESSION['id']))
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles.css">
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=0.8">
 		<title> GBAF </title>
 	</head>
 	<body>
@@ -57,7 +58,7 @@ if(isset($_SESSION['id']))
 					</div>
 				</div>
 
-				<?php include('includes/affichage_commentaires.php'); ?>
+				<?php include('includes/affichage_commentaire.php'); ?>
 				
 			</section>
 

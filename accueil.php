@@ -11,6 +11,7 @@ if (isset($_SESSION['id']))
 		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles.css">
+		<meta name="viewport" content="width=device-width, initial-scale=0.8">
 		<meta charset="utf-8">
 		<title> Extranet GBAF </title>
 	</head>

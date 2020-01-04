@@ -52,6 +52,7 @@ if (isset($_POST['formulaire_connexion']))
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles.css">
 		<link rel="stylesheet" type="text/css" href="form.css">
+		<meta name="viewport" content="width=device-width, initial-scale=0.8">
 		<meta charset="utf-8">
 		<title> Connexion </title>
 	</head>

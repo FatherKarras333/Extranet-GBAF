@@ -122,6 +122,7 @@ if (isset($_SESSION['id']))
 		<link rel="stylesheet" type="text/css" href="styles.css">
 		<link rel="stylesheet" type="text/css" href="form.css">
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=0.8">
 		<title> GBAF </title>
 	</head>
 
