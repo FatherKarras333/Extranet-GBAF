@@ -63,7 +63,7 @@ else
 			<?php include('includes/header_connecte.php'); ?>
 
 			<div class="vertical_align">
-			<div class="form" id="connexion">
+			<div class="form" id="formulaire_commentaire">
 				<h3 class="title"> Saisir un commentaire</h3>
 				<form method="POST" action="">
 					<textarea  name="commentaire"></textarea>

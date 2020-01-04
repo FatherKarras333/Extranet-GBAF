@@ -65,7 +65,7 @@ if (isset($_POST['formulaire_motdepasseoublié']))
 			<?php include('includes/header_deconnecte.php'); ?>
 
 			<div class="vertical_align">
-			<div class="form" id="connexion" style="margin-bottom: 50px;">
+			<div class="form" id="connexion">
 				<h3 class="title"> Mot de passe oublié</h3>
 				<form method="POST" action="">
 					<label for="pseudo"> Pseudo*</label><br/>

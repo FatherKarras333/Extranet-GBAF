@@ -22,7 +22,7 @@
 	padding-top: 10px;
 	font-family: 'Roboto', sans-serif;
 	box-shadow: 1px 2px 2px #333333;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 
 .title{
@@ -82,4 +82,16 @@ label{
 #connexion{
 	height: 500px;
 	margin-top: 200px;
+}
+
+/* formulaire commentaire */
+
+#formulaire_commentaire{
+	height: 400px;
+}
+
+textarea{
+	margin-bottom: 35px;
+	height: 200px;
+	width: 90%;
 }

@@ -56,6 +56,22 @@ header{
 	margin-right: 20px;	
 }
 
+.logout_icon{
+	width: 28px;
+	margin-right: 10px;
+}
+
+.login_icon{
+	margin-right: 10px;
+}
+
+.login_name{
+	font-size: 1.1em; 
+	position: relative; 
+	bottom:5px; 
+	color: #333;
+}
+
 /* PRESENTATION */
 
 #presentation{
@@ -155,6 +171,15 @@ footer{
 	font-size: 14px;
 }
 
+.oc{
+	font-size: 10px; 
+	color: #B7B7B7;
+}
+
+.marge{
+	margin-bottom: 25px;
+}
+
 /* Pages Acteurs*/ 
 
 .details
@@ -221,4 +246,34 @@ footer{
 	padding: 5px 5px 5px 5px;
 	box-shadow: 1px 2px 2px #333333; 
 	background-color: #333333;
+}
+
+.affichage_commentaire
+{
+	width: 95%;
+	background-color: #fff;
+	border: 1px solid black;
+	margin: 20px auto 20px auto;
+	padding-bottom: 20px;
+	border-radius: 15px 15px 15px 15px;
+	resize: none;
+}
+
+.style_prenom{
+	font-weight: bold;
+	text-align: left;
+	margin-left: 10px;
+}
+
+.style_commentaire{
+	font-size: 12px;
+	margin-top: -10px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+.style_date{
+	margin-top: -5px;
+	text-align: left;
+	margin-left: 10px;
 }

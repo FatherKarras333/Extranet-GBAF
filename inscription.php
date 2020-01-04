@@ -75,7 +75,7 @@ if (isset($_POST['formulaire_inscription']))
 			<?php include('includes/header_deconnecte.php'); ?>
 
 			<div class="vertical_align">
-				<div class="form" style="margin-bottom: 50px;">
+				<div class="form">
 					<h3 class="title"> Inscription</h3>
 					<form method="post">
 						<label for="nom"> Nom: </label> <br/>

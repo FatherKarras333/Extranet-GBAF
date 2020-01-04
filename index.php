@@ -61,7 +61,7 @@ if (isset($_POST['formulaire_connexion']))
 			<?php include('includes/header_deconnecte.php'); ?>
 
 			<div class="vertical_align">
-			<div class="form" id="connexion" style="margin-bottom: 50px;">
+			<div class="form" id="connexion">
 				<h3 class="title"> Connexion</h3>
 				<form method="POST">
 					<label for="pseudo_connection"> Pseudo*</label><br/>
