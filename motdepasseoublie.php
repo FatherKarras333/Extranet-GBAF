@@ -1,3 +1,55 @@
+<?php 
+session_start();
+
+		try
+		{
+			$bdd = new PDO('mysql:host=localhost;dbname=vifl4713_bdd;charset=utf8','vifl4713_bdd', 'LOCWqSqgX2PduJlbyC'); 
+		}
+		catch (Exception $e)
+		{
+			die('Erreur : ' . $e->getMessage());
+		}
+
+if (isset($_POST['formulaire_motdepasseoublié']))
+{
+	if (!empty($_POST['pseudo']) AND !empty($_POST['question']) AND !empty($_POST['reponse']) AND !empty($_POST['nouveau_motdepasse']))
+	{	
+		$pseudo = htmlspecialchars($_POST['pseudo']);
+		$question = htmlspecialchars($_POST['question']);
+		$reponse = htmlspecialchars($_POST['reponse']);
+		$nouveauMotDePasse = sha1($_POST['nouveau_motdepasse']);
+
+		$motDePasselength = strlen($nouveauMotDePasse);
+		if($motDePasselength >= 10)
+		{
+			$requeteUtilisateur = $bdd->prepare('SELECT * FROM members WHERE pseudo = :pseudo AND question = :question AND reponse = :reponse ');
+			$requeteUtilisateur->execute(['pseudo'=>$pseudo, 'question'=>$question, 'reponse'=>$reponse]);
+			$utilisateurExiste = $requeteUtilisateur->rowCount();
+			if ($utilisateurExiste === 1) 
+			{
+				$utilisateurInfo = $requeteUtilisateur->fetch();
+				$_SESSION['id'] = $utilisateurInfo['id'];
+				$insererMotDePasse = $bdd->prepare('UPDATE members SET motdepasse = :motdepasse WHERE id = :id');
+				$insererMotDePasse->execute([':motdepasse'=>$nouveauMotDePasse, ':id'=>$_SESSION['id']]);
+				header('location: index.php');
+			}
+			else
+			{
+			$message = ' Pseudo ou réponse incorrect ';
+			}
+		}
+		else
+		{
+			$message = 'Le mot de passe doit comporter au moins 10 caractères';
+		}
+	}
+	else
+	{
+		$message = ' Tous les champs doivent être remplis';
+	}
+
+}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -37,6 +89,15 @@
 					
 
 				</form><br /><br />
+
+				<?php
+					if (isset($message)) 
+					{
+					
+						echo ' <font color="red"> ' . $message . '  ';
+
+					}
+				?>
 				
 			</div>
 			</div>
