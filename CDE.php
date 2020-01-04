@@ -4,6 +4,8 @@ session_start();
 if(isset($_SESSION['id']))
 {
 
+	$page = 1 ;
+
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +33,7 @@ if(isset($_SESSION['id']))
 				<div class="entete_commentaire">
 					<h3> Commentaires</h3>
 					<div class="likes">
-						<a class="bouton_commentaire" href="#"> Nouveau commentaire  </a> 
+						<a class="bouton_commentaire" href="post_commentaire.php?p=1"> Nouveau commentaire  </a> 
 						<a href="#"><img src="images/like24px.png"> </a>
 						<a href="#"><img src="images/dislike24px.png"> </a>
 					</div>
