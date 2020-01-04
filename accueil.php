@@ -39,7 +39,7 @@ if (isset($_SESSION['id']))
 							<div class="text">
 								<h3> CDE</h3>
 								<p>La CDE (Chambre Des Entrepreneurs) accompagne les entreprises dans leurs démarches de formation. </p>
-								<a href="cde.php" class="bouton">Lire la suite</a> 
+								<a href="CDE.php" class="bouton">Lire la suite</a> 
 							</div>	
 							
 						</div>

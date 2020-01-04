@@ -23,7 +23,7 @@ if (isset($_SESSION['id'], $_GET['p']) AND !empty($_GET['p']))
 
 		switch ($page) {
 			case 1:
-				header('Location: cde.php');
+				header('Location: CDE.php');
 				break;
 			case 2:
 				header('Location: dsa.php');
