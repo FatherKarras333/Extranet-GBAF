@@ -1,6 +1,15 @@
 <?php
 session_start();
 
+		try
+		{
+			$bdd = new PDO('mysql:host=localhost;dbname=vifl4713_bdd;charset=utf8','vifl4713_bdd', 'LOCWqSqgX2PduJlbyC'); 
+		}
+		catch (Exception $e)
+		{
+			die('Erreur : ' . $e->getMessage());
+		}
+
 if(isset($_SESSION['id']))
 {
 	$page = 2;
@@ -38,6 +47,8 @@ if(isset($_SESSION['id']))
 						<a href="#"><img src="images/dislike24px.png"></a>
 					</div>
 				</div>
+
+				<?php include('includes/affichage_commentaires.php'); ?>
 				
 			</section>
 			<?php include('includes/footer.php'); ?>
