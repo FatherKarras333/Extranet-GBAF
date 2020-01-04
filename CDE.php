@@ -40,11 +40,11 @@ if(isset($_SESSION['id']))
 
 			<section id="comments">
 				<div class="entete_commentaire">
-					<h3> Commentaires</h3>
+					<?php include('includes/compteur_nombres.php'); ?>
 					<div class="likes">
 						<a class="bouton_commentaire" href="post_commentaire.php?p=1"> Nouveau commentaire  </a> 
-						<a href="#"><img src="images/like24px.png"> </a>
-						<a href="#"><img src="images/dislike24px.png"> </a>
+						<a href="vote.php?p=1&v=1"><img src="images/like24px.png"> <?php echo $likes ; ?> </a>
+						<a href="vote.php?p=1&v=2"><img src="images/dislike24px.png"> <?php echo $dislikes ; ?> </a>
 					</div>
 				</div>
 
