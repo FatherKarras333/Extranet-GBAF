@@ -29,7 +29,7 @@ if (isset($_POST['formulaire_motdepasseoublié']))
 			{
 				$utilisateurInfo = $requeteUtilisateur->fetch();
 				$_SESSION['id'] = $utilisateurInfo['id'];
-				$insererMotDePasse = $bdd->prepare('UPDATE members SET motdepasse = :motdepasse WHERE id = :id');
+				$insererMotDePasse = $bdd->prepare('UPDATE members SET mot_de_passe = :motdepasse WHERE id = :id');
 				$insererMotDePasse->execute([':motdepasse'=>$nouveauMotDePasse, ':id'=>$_SESSION['id']]);
 				header('location: index.php');
 			}

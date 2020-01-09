@@ -32,7 +32,7 @@ if (isset($_POST['formulaire_inscription']))
 				$pseudoExiste = $requetePseudo->rowCount();
 				if ($pseudoExiste === 0) 
 				{	
-					$insererMembre = $bdd->prepare('INSERT INTO members(nom, prenom, pseudo, motdepasse, question, reponse) VALUES (:nom, :prenom, :pseudo, :motdepasse, :question, :reponse)');
+					$insererMembre = $bdd->prepare('INSERT INTO members(nom, prenom, pseudo, mot_de_passe, question, reponse) VALUES (:nom, :prenom, :pseudo, :motdepasse, :question, :reponse)');
 					$insererMembre->execute([':nom'=>$nom, ':prenom'=>$prenom, 'pseudo'=>$pseudo, ':motdepasse'=>$motDePasse, ':question'=>$question, 'reponse'=>$reponse]);
 					$message = 'Votre compte a bien été créé !';
 					header('Location: index.php');

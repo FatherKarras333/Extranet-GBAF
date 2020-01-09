@@ -17,7 +17,7 @@ if (isset($_POST['formulaire_connexion']))
 		$pseudoConnection = htmlspecialchars($_POST['pseudo_connection']);
 		$motDePasseConnection = sha1($_POST['motdepasse_connection']);
 	 
-		$requeteUtilisateur = $bdd->prepare('SELECT * FROM members WHERE pseudo = :pseudo AND motdepasse = :motdepasse');
+		$requeteUtilisateur = $bdd->prepare('SELECT * FROM members WHERE pseudo = :pseudo AND mot_de_passe = :motdepasse');
 		$requeteUtilisateur->execute([':pseudo'=>$pseudoConnection, ':motdepasse'=>$motDePasseConnection]);
 		$utilisateurExiste = $requeteUtilisateur->rowCount();
 		if ($utilisateurExiste === 1) 

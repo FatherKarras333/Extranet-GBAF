@@ -69,13 +69,13 @@ if (isset($_SESSION['id']))
 			$motDePasselength = strlen($nouveauMotDePasse);
 			if($motDePasselength >= 10)
 			{
-				$requeteMotDePasse = $bdd->prepare('SELECT * FROM members WHERE id = ' . $_SESSION['id'] . '  AND motdepasse = :motdepasse');
+				$requeteMotDePasse = $bdd->prepare('SELECT * FROM members WHERE id = ' . $_SESSION['id'] . '  AND mot_de_passe = :motdepasse');
 				$requeteMotDePasse->execute(['motdepasse'=>$motDePasseVerification]);
 				$motDePasseExiste = $requeteMotDePasse->rowCount();
 
 				if ($motDePasseExiste === 1)
 				{	
-					$insererMotDePasse = $bdd->prepare('UPDATE members SET motdepasse = :motdepasse WHERE id = :id');
+					$insererMotDePasse = $bdd->prepare('UPDATE members SET mot_de_passe = :motdepasse WHERE id = :id');
 					$insererMotDePasse->execute(['motdepasse'=>$nouveauMotDePasse, ':id'=>$_SESSION['id']]);
 					header('Location: accueil.php ');
 				}
