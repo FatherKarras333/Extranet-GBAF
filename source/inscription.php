@@ -65,10 +65,10 @@ if (isset($_POST['formulaire_inscription']))
 	<body>
 			<?php include('includes/header_deconnecte.php'); ?>
 
-			<div class="vertical_align">
-				<div class="form">
-					<h3 class="title"> Inscription</h3>
-					<form method="post">
+			<main class="vertical_align">
+				
+					<form method="post" id="form">
+						<h3 class="title"> Inscription</h3>
 						<label for="nom"> Nom: </label> <br/>
 						<input type="text" name="nom" placeholder="Entrer votre nom"> <br/>
 						
@@ -97,13 +97,15 @@ if (isset($_POST['formulaire_inscription']))
 					</form>
 
 					<?php
-						if (isset($message)) 
-						{
-							echo '<p> <font color="red"> ' . $message. ' </p> ';
-						}
+					if (isset($message)) 
+					{
 					?>
-				</div>
-			</div>
+						<p class="message"> <?php echo $message ; ?></p>
+					<?php
+					}
+					?>
+			</main>
+
 			<?php include('includes/footer.php'); ?>
 	</body>
 </html>

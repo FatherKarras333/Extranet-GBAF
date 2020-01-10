@@ -51,32 +51,30 @@ if (isset($_POST['formulaire_connexion']))
 
 			<?php include('includes/header_deconnecte.php'); ?>
 
-			<div class="vertical_align">
-			<div class="form" id="connexion">
-				<h3 class="title"> Connexion</h3>
-				<form method="POST">
-					<label for="pseudo_connection"> Pseudo*</label><br/>
-					<input type="text" name="pseudo_connection" id="pseudo_connection" placeholder="Entrer votre nom d'utilisateur"><br/>
+			<main class="vertical_align">
+					<form method="POST" class="connexion">
+						<h3 class="title"> Connexion</h3>
+						<label for="pseudo_connection"> Pseudo*</label><br/>
+						<input type="text" name="pseudo_connection" id="pseudo_connection" placeholder="Entrer votre nom d'utilisateur"><br/>
 
-					<label for="motdepasse_connection"> Mot de passe*</label><br/>
-					<input type="password" name="motdepasse_connection" id="motdepasse_connection" placeholder="Entrer votre mot de passe">
+						<label for="motdepasse_connection"> Mot de passe*</label><br/>
+						<input type="password" name="motdepasse_connection" id="motdepasse_connection" placeholder="Entrer votre mot de passe">
 
-					<input type="submit" name="formulaire_connexion" value="Connexion"><br/>
+						<input type="submit" name="formulaire_connexion" value="Connexion"><br/>
 
-					<a href="motdepasseoublie.php"> mot de passe oublié ? </a>
-					<p> Vous n'avez pas de compte ?  <a href="inscription.php"> Inscrivez-vous</a></p>
-				</form><br /><br />
-				<?php
+						<a href="motdepasseoublie.php"> mot de passe oublié ? </a>
+						<p> Vous n'avez pas de compte ?  <a href="inscription.php"> Inscrivez-vous</a></p>
+					</form>
+					<?php
 					if (isset($message)) 
 					{
-					
-						echo ' <font color="red"> ' . $message . '  ';
-
+					?>
+						<p class="message"> <?php echo $message ; ?></p>
+					<?php
 					}
-				?>
+					?>
 				
-			</div>
-			</div>
+			</main>
 			
 			<?php include('includes/footer.php'); ?>
 	</body>

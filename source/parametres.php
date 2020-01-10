@@ -70,13 +70,13 @@ if (isset($_SESSION['id']))
 			if($motDePasselength >= 10)
 			{
 				$requeteMotDePasse = $bdd->prepare('SELECT * FROM members WHERE id = ' . $_SESSION['id'] . '  AND mot_de_passe = :motdepasse');
-				$requeteMotDePasse->execute(['motdepasse'=>$motDePasseVerification]);
+				$requeteMotDePasse->execute([':motdepasse'=>$motDePasseVerification]);
 				$motDePasseExiste = $requeteMotDePasse->rowCount();
 
 				if ($motDePasseExiste === 1)
 				{	
 					$insererMotDePasse = $bdd->prepare('UPDATE members SET mot_de_passe = :motdepasse WHERE id = :id');
-					$insererMotDePasse->execute(['motdepasse'=>$nouveauMotDePasse, ':id'=>$_SESSION['id']]);
+					$insererMotDePasse->execute([':motdepasse'=>$nouveauMotDePasse, ':id'=>$_SESSION['id']]);
 					header('Location: accueil.php ');
 				}
 				else
@@ -119,10 +119,10 @@ if (isset($_SESSION['id']))
 	<body>
 			<?php include('includes/header_connecte.php'); ?>
 
-			<div class="vertical_align">
-				<div class="form" id="formulaire_modification">
-					<h3 class="title"> Editer mon profil</h3>
-					<form method="post" action="">
+			<main class="vertical_align">
+		
+					<form method="post" id="formulaire_modification">
+						<h3 class="title"> Editer mon profil</h3>
 						<label for="nom"> Nom: </label> <br/>
 						<input type="text" name="nom" placeholder="<?php echo  $_SESSION['nom']; ?>"> <br/>
 						
@@ -151,17 +151,16 @@ if (isset($_SESSION['id']))
 
 						<input type="submit" name="formulaire_edition" value="Mettre à jour">
 						
-					</form><br />
+					</form>
 
 					<?php
 						if (isset($erreur)) 
 						{
-							echo '<p> <font color="red"> ' . $erreur . ' </p> ';
+							echo '<p style= "margin-top: -30px;"> <font color="red"> ' . $erreur . ' </p> ';
 						}
 					?>
 
-				</div>
-			</div>
+			</main>
 
 			<?php include('includes/footer.php'); ?>
 	</body>

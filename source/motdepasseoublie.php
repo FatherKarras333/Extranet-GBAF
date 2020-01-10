@@ -10,7 +10,7 @@ session_start();
 			die('Erreur : ' . $e->getMessage());
 		}
 
-if (isset($_POST['formulaire_motdepasseoublié']))
+if (isset($_POST['formulaire_motdepasseoublie']))
 {
 	if (!empty($_POST['pseudo']) AND !empty($_POST['question']) AND !empty($_POST['reponse']) AND !empty($_POST['nouveau_motdepasse']))
 	{	
@@ -56,10 +56,10 @@ if (isset($_POST['formulaire_motdepasseoublié']))
 	<body>
 			<?php include('includes/header_deconnecte.php'); ?>
 
-			<div class="vertical_align">
-			<div class="form" id="connexion">
-				<h3 class="title"> Mot de passe oublié</h3>
-				<form method="POST" action="">
+			<main class="vertical_align">
+	
+				<form method="POST" class="connexion">
+					<h3 class="title"> Mot de passe oublié</h3>
 					<label for="pseudo"> Pseudo*</label><br/>
 					<input type="text" name="pseudo" placeholder="Entrer votre pseudo"><br/>
 
@@ -77,22 +77,20 @@ if (isset($_POST['formulaire_motdepasseoublié']))
 					<label for="nouveau_motdepasse"> Nouveau mot de passe*</label><br/>
 					<input type="password" name="nouveau_motdepasse" pattern=".{10,}" title="10 caractères minimum" placeholder="Saisissez un nouveau mot de passe">
 
-					<input type="submit" name="formulaire_motdepasseoublié" value="Envoyer"><br/>
-					
-
-				</form><br /><br />
+					<input type="submit" name="formulaire_motdepasseoublie" value="Envoyer"><br/>	
+				</form>
 
 				<?php
 					if (isset($message)) 
 					{
-					
-						echo ' <font color="red"> ' . $message . '  ';
-
+					?>
+						<p class="message"> <?php echo $message ; ?></p>
+					<?php
 					}
 				?>
 				
-			</div>
-			</div>
+			</main>
+
 			<?php include('includes/footer.php'); ?>
 	</body>
 </html>

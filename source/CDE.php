@@ -29,18 +29,19 @@ if(isset($_SESSION['id']))
 			</section>	
 
 			<section id="comments">
-				<div class="entete_commentaire">
+				<header class="entete_commentaire">
 					<?php include('includes/compteur_nombres.php'); ?>
 					<div class="likes">
 						<a class="bouton_commentaire" href="post_commentaire.php?p=1"> Nouveau commentaire  </a> 
 						<a href="vote.php?p=1&v=1"><img src="../public/images/like24px.png"> <?php echo $likes ; ?> </a>
 						<a href="vote.php?p=1&v=2"><img src="../public/images/dislike24px.png"> <?php echo $dislikes ; ?> </a>
 					</div>
-				</div>
+				</header>
 
 				<?php include('includes/affichage_commentaire.php'); ?>
 				
 			</section>
+			
 			<?php include('includes/footer.php'); ?>
 	</body>
 </html>	

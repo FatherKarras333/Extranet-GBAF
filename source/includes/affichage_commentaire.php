@@ -4,11 +4,11 @@
 	while ($donnees = $reponse->fetch())
 	{
 	?>
-		<div class="affichage_commentaire">
+		<article class="affichage_commentaire">
 			<p class="style_prenom"> <?php echo $donnees['prenom']; ?> </p>
 			<p class="style_commentaire"> <?php echo $donnees['date_creation_fr']; ?> </p>
 			<p class="style_date"> <?php echo $donnees['commentaire']; ?> </p>
-		</div>
+		</article>
 	<?php
 	}
 ?>

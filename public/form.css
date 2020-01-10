@@ -8,21 +8,25 @@
 .vertical_align
 {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
 }
 
-.form{
+form{
 	width: 400px;
-	height: 650px;
 	margin-top: 150px;
 	background-color:#DA2C38;
 	border-radius: 15px 15px 15px 15px;
 	padding-top: 10px;
 	font-family: 'Roboto', sans-serif;
 	box-shadow: 1px 2px 2px #333333;
-	margin-bottom: 50px;
+	display: block;
+}
+
+#form{
+	height: 650px;
 }
 
 .title{
@@ -35,12 +39,12 @@ label{
 	color: #fff;
 }
 
-.form input, select{
+form input, select{
 	margin-bottom: 20px;
 	width: 80%;
 }
 
-.form input[type=text] , .form input[type=password] , .form select {
+form input[type=text] , form input[type=password] , form select {
 	border: none;
 	border-bottom: 1px solid #333333;
 	background-color: transparent;
@@ -49,7 +53,7 @@ label{
 	color: #fff;
 }
 
-.form select {
+form select {
 	color: #333333;
 }
 
@@ -57,7 +61,7 @@ label{
 	color: #333;
 } 
 
-.form input[type=submit]{
+form input[type=submit]{
 	border: none;
 	outline: none;
 	height: 30px;
@@ -68,32 +72,36 @@ label{
 	font-family: 'Roboto', sans-serif;
 }
 
+.message{
+	color: red;
+}
+
 /* Page de connexion */ 
 
-#connexion a{
+.connexion a{
 	font-size: 12px;
 	text-decoration: underline;
 }
 
-#connexion p , #connexion p a{
+.connexion p , .connexion p a{
 	margin-top: 100px;
 }
 
-#connexion{
+.connexion{
 	height: 500px;
-	margin-top: 200px;
+	margin-top: 150px;
 }
 
 /* responsive */
 @media only screen and (max-width: 800px){
-	.form{
+	form{
 		margin: 200px 10px 50px 10px;
 	}
 }
 
 @media only screen and (max-width: 465px){
 	
-	#connexion p , #connexion p a{
+	.connexion p , .connexion p a{
 	font-size: 12px;
 	}
 }
@@ -102,6 +110,7 @@ label{
 #formulaire_modification
 {
 	height: 750px;
+	margin-top: 170px;
 	margin-bottom: 50px;
 }
 

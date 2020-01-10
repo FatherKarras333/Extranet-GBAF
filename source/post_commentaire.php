@@ -54,23 +54,24 @@ else
 	<body>
 			<?php include('includes/header_connecte.php'); ?>
 
-			<div class="vertical_align">
-			<div class="form" id="formulaire_commentaire">
-				<h3 class="title"> Saisir un commentaire</h3>
-				<form method="POST" action="">
+			<main class="vertical_align">
+	
+				<form method="POST" id="formulaire_commentaire">
+					<h3 class="title"> Saisir un commentaire</h3>
 					<textarea  name="commentaire"></textarea>
 					<input type="submit" name="poster_commentaire" value="Poster"><br/>
-				</form><br /><br />
+				</form>
 
 				<?php
 					if (isset($message)) 
 					{
-						echo ' <font color="red"> ' . $message . '  ';
+					?>
+						<p class="message"> <?php echo $message ; ?></p>
+					<?php
 					}
 				?>
 
-			</div>
-			</div>
+			</main>
 			
 			<?php include('includes/footer.php'); ?>
 	</body>
