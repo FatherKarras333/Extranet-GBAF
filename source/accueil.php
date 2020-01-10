@@ -5,16 +5,8 @@ if (isset($_SESSION['id']))
 {
 	
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<meta name="viewport" content="width=device-width, initial-scale=0.8">
-		<meta charset="utf-8">
-		<title> Extranet GBAF </title>
-	</head>
+
+<?php include('includes/head_connect.php'); ?>
 
 	<body>
 
@@ -36,7 +28,7 @@ if (isset($_SESSION['id']))
 				<h2>  Acteurs et partenaires</h2>
 					<div class="actors_box">
 						<div class="box">
-							<p> <img src="images/CDE_full.png" alt="logo de la CDE"></p>
+							<p> <img src="../public/images/CDE_full.png" alt="logo de la CDE"></p>
 							<div class="text">
 								<h3> CDE</h3>
 								<p>La CDE (Chambre Des Entrepreneurs) accompagne les entreprises dans leurs démarches de formation. </p>
@@ -46,7 +38,7 @@ if (isset($_SESSION['id']))
 						</div>
 
 						<div class="box">
-							<p> <img src="images/Dsafrance_full.png" alt="logo de dsa france"></p>
+							<p> <img src="../public/images/Dsafrance_full.png" alt="logo de dsa france"></p>
 							<div class="text">
 								<h3> DSA France</h3>
 								<p>Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales.</p>
@@ -55,7 +47,7 @@ if (isset($_SESSION['id']))
 						</div>
 
 						<div class="box">
-							<p> <img src="images/formation_co_full.png" alt="logo de formation&co"></p>
+							<p> <img src="../public/images/formation_co_full.png" alt="logo de formation&co"></p>
 							<div class="text">
 								<h3> Formation&co</h3>	
 								<p> Formation&co est une association française présente sur tout le territoire.</p>
@@ -64,7 +56,7 @@ if (isset($_SESSION['id']))
 						</div>
 
 						<div class="box">
-							<p> <img src="images/protectpeople_full.png" alt="logo de protect people"></p>
+							<p> <img src="../public/images/protectpeople_full.png" alt="logo de protect people"></p>
 							<div class="text">
 								<h3> Protect people</h3>
 								<p>Protectpeople finance la solidarité nationale.</p>

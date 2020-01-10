@@ -3,7 +3,7 @@ session_start();
 
 		try
 		{
-			$bdd = new PDO('mysql:host=localhost;dbname=vifl4713_bdd;charset=utf8','vifl4713_bdd', 'LOCWqSqgX2PduJlbyC'); 
+			$bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8','root', ''); 
 		}
 		catch (Exception $e)
 		{
@@ -23,7 +23,7 @@ if (isset($_POST['formulaire_motdepasseoublié']))
 		if($motDePasselength >= 10)
 		{
 			$requeteUtilisateur = $bdd->prepare('SELECT * FROM members WHERE pseudo = :pseudo AND question = :question AND reponse = :reponse ');
-			$requeteUtilisateur->execute(['pseudo'=>$pseudo, 'question'=>$question, 'reponse'=>$reponse]);
+			$requeteUtilisateur->execute([':pseudo'=>$pseudo, ':question'=>$question, ':reponse'=>$reponse]);
 			$utilisateurExiste = $requeteUtilisateur->rowCount();
 			if ($utilisateurExiste === 1) 
 			{
@@ -50,17 +50,8 @@ if (isset($_POST['formulaire_motdepasseoublié']))
 
 }
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link rel="stylesheet" type="text/css" href="form.css">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=0.8">
-		<title> GBAF </title>
-	</head>
+
+<?php include('includes/head_deconnecte.php'); ?>
 
 	<body>
 			<?php include('includes/header_deconnecte.php'); ?>

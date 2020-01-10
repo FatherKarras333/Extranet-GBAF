@@ -2,7 +2,7 @@
 
 		try
 		{
-			$bdd = new PDO('mysql:host=localhost;dbname=vifl4713_bdd;charset=utf8','vifl4713_bdd', 'LOCWqSqgX2PduJlbyC'); 
+			$bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8','root', ''); 
 		}
 		catch (Exception $e)
 		{
@@ -33,7 +33,7 @@ if (isset($_POST['formulaire_inscription']))
 				if ($pseudoExiste === 0) 
 				{	
 					$insererMembre = $bdd->prepare('INSERT INTO members(nom, prenom, pseudo, mot_de_passe, question, reponse) VALUES (:nom, :prenom, :pseudo, :motdepasse, :question, :reponse)');
-					$insererMembre->execute([':nom'=>$nom, ':prenom'=>$prenom, 'pseudo'=>$pseudo, ':motdepasse'=>$motDePasse, ':question'=>$question, 'reponse'=>$reponse]);
+					$insererMembre->execute([':nom'=>$nom, ':prenom'=>$prenom, ':pseudo'=>$pseudo, ':motdepasse'=>$motDePasse, ':question'=>$question, ':reponse'=>$reponse]);
 					$message = 'Votre compte a bien été créé !';
 					header('Location: index.php');
 				}
@@ -60,17 +60,7 @@ if (isset($_POST['formulaire_inscription']))
 }
 
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link rel="stylesheet" type="text/css" href="form.css">
-		<meta name="viewport" content="width=device-width, initial-scale=0.8">
-		<meta charset="utf-8">
-		<title> Inscription </title>
-	</head>
+<?php include('includes/head_deconnecte.php'); ?>
 
 	<body>
 			<?php include('includes/header_deconnecte.php'); ?>

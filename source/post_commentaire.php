@@ -3,7 +3,7 @@ session_start();
 
 		try
 		{
-			$bdd = new PDO('mysql:host=localhost;dbname=vifl4713_bdd;charset=utf8','vifl4713_bdd', 'LOCWqSqgX2PduJlbyC'); 
+			$bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8','root', ''); 
 		}
 		catch (Exception $e)
 		{
@@ -17,9 +17,10 @@ if (isset($_SESSION['id'], $_GET['p']) AND !empty($_GET['p']))
 	{
 		$prenom = $_SESSION['prenom'];
 		$commentaire = $_POST['commentaire'];
+		$idMembre = $_SESSION['id'];
 
-		$requeteCommentaire = $bdd->prepare('INSERT INTO commentaires (prenom, commentaire, id_page, date_creation) VALUES(:prenom, :commentaire, :id_page , NOW())');
-		$requeteCommentaire->execute([':prenom'=>$prenom, ':commentaire'=>$commentaire, 'id_page'=>$page]);
+		$requeteCommentaire = $bdd->prepare('INSERT INTO commentaires (prenom, commentaire, id_page, date_creation, id_membre) VALUES(:prenom, :commentaire, :id_page , NOW(), :idMembre)');
+		$requeteCommentaire->execute([':prenom'=>$prenom, ':commentaire'=>$commentaire, 'id_page'=>$page, ':idMembre'=>$idMembre]);
 
 		switch ($page) {
 			case 1:
@@ -48,17 +49,7 @@ else
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link rel="stylesheet" type="text/css" href="form.css">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=0.8">
-		<title> GBAF </title>
-	</head>
+<?php include('includes/head_deconnecte.php'); ?>
 
 	<body>
 			<?php include('includes/header_connecte.php'); ?>

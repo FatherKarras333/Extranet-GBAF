@@ -3,7 +3,7 @@ session_start();
 
 		try
 		{
-			$bdd = new PDO('mysql:host=localhost;dbname=vifl4713_bdd;charset=utf8','vifl4713_bdd', 'LOCWqSqgX2PduJlbyC'); 
+			$bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8','root', ''); 
 		}
 		catch (Exception $e)
 		{
@@ -45,17 +45,7 @@ if (isset($_POST['formulaire_connexion']))
 
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link rel="stylesheet" type="text/css" href="form.css">
-		<meta name="viewport" content="width=device-width, initial-scale=0.8">
-		<meta charset="utf-8">
-		<title> Connexion </title>
-	</head>
+	<?php include('includes/head_deconnecte.php'); ?>
 
 	<body>
 
@@ -73,7 +63,7 @@ if (isset($_POST['formulaire_connexion']))
 
 					<input type="submit" name="formulaire_connexion" value="Connexion"><br/>
 
-					<a href="motdepasseoublié.php"> mot de passe oublié ? </a>
+					<a href="motdepasseoublie.php"> mot de passe oublié ? </a>
 					<p> Vous n'avez pas de compte ?  <a href="inscription.php"> Inscrivez-vous</a></p>
 				</form><br /><br />
 				<?php

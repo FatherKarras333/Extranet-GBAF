@@ -6,6 +6,6 @@
 		<title> GBAF </title>
 		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link rel="stylesheet" type="text/css" href="form.css">
+		<link rel="stylesheet" type="text/css" href="../public/styles.css">
+		<link rel="stylesheet" type="text/css" href="../public/form.css">
 	</head>

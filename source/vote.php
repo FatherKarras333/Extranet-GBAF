@@ -5,7 +5,7 @@ function handleLikes ( $page, $idMembre, $likes) {
 
 		try
 		{
-			$bdd = new PDO('mysql:host=localhost;dbname=vifl4713_bdd;charset=utf8','vifl4713_bdd', 'LOCWqSqgX2PduJlbyC'); 
+			$bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8','root', ''); 
 		}
 		catch (Exception $e)
 		{
@@ -32,7 +32,7 @@ function handleLikes ( $page, $idMembre, $likes) {
 		}
 		elseif ($likes === 2 )
 		{
-			$verificationLike = $bdd->prepare('SELECT id FROM dislikes WHERE id_page = :idPage AND id_membre = idMembre');
+			$verificationLike = $bdd->prepare('SELECT id FROM dislikes WHERE id_page = :idPage AND id_membre = :idMembre');
 			$verificationLike->execute([':idPage'=>$page, ':idMembre'=>$idMembre]);
 
 			$suppression = $bdd->prepare("DELETE FROM likes WHERE id_page = :idPage AND id_membre = :idMembre");
